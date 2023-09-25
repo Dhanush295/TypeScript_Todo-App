@@ -1,11 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
-const port = 3000;
+const adminRouter = require("./routes/admin");
 
-app.get("/", function (req, res) {
-  res.send("Hello World!");
-});
+app.use(cors());
+app.use(express.json());
 
-app.listen(port, function () {
-  console.log(`Example app listening on port ${port}!`);
-});
+app.use("/adim", adminRouter)
+
+app.listen(3000, ()=> console.log("Server Listening on port 3000"));
