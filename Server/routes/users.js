@@ -1,23 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const { User } = require("../db");
+const { Users } = require("../db");
 
-router.post("signup", async (req, res) => {
-    const { username, password } = req.body; 
-    const user = await User.findOne({username});
+router.post('/signup', async (req, res) => {
+    const {username, password} = req.body;
+    const user = await Users.findOne({username});
     if (user){
-        res.status(403).json({ message:'User already exists' });
+        res.status(404).json({message: "Username Already Exist"});
     }
     else{
-        try {
-            const newUser = new User({ username, password });
-            await newUser.save();
-            res.json({ message: 'User created successfully' });
-        } catch (error) {
-            console.error('Error saving user:', error);
-            res.status(500).json({ message: 'Internal server error' });
-        }
-        res.json({ message: 'user created successfully'});
+        const newUser = new Users({ username: username, password: password});
+        newUser.save();
+        res.json({ message: 'User created successfully' });
     }
 });
 

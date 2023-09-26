@@ -7,7 +7,7 @@ const userRouter = require("./routes/users");
 app.use(cors());
 app.use(express.json());
 
-app.use("/users/",userRouter)
+app.use("/users",userRouter);
 
 mongoose
     .connect('mongodb+srv://dhanu0529:I1l1Ux1JdPh29c7s@cluster0.h5b5s2t.mongodb.net/?retryWrites=true&w=majority', {
