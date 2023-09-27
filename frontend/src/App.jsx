@@ -4,6 +4,7 @@ import Login from '../components/Login';
 import Navbar from '../components/Navbar';
 import Signup from '../components/Signup';
 import Update from '../components/Update';
+import createTodo from '../components/CreateTodo';
 
 
 import './App.css'
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path ={"/login"} element={<Login />}></Route>
           <Route path ={"/signup"} element={<Signup />}></Route>
+          <Route path ={"/todo"} element={<createTodo/>}></Route>
           <Route path ={"/update"} element={<Update/>}></Route>
         </Routes>
       </Router>
