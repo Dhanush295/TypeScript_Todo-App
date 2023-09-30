@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const SECRET = "jwtSecretfor-todoApp"
 
 
@@ -21,3 +22,6 @@ const authenticate = async (req,res,next)=>{
 };
 
 module.exports = {authenticate, SECRET}
+=======
+console.log("hi")
+>>>>>>> Stashed changes
