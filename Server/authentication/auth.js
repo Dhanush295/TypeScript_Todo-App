@@ -1,7 +1,6 @@
-<<<<<<< Updated upstream
+const jwt = require('jsonwebtoken');
+
 const SECRET = "jwtSecretfor-todoApp"
-
-
 
 const authenticate = async (req,res,next)=>{
   const token = req.headers.authorization.split(' ')[1]; 
@@ -22,6 +21,5 @@ const authenticate = async (req,res,next)=>{
 };
 
 module.exports = {authenticate, SECRET}
-=======
-console.log("hi")
->>>>>>> Stashed changes
+
+

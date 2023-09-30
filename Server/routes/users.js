@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { USERS, TODOS } = require("../db/database");
 const jwt = require('jsonwebtoken');
-import { SECRET } from "../authentication/auth";
-import { authenticate } from "../authentication/auth";
+const {SECRET, authenticate } = require("../authentication/auth")
 
 router.post('/signup', async (req, res) => {
     const userdata = req.body;
