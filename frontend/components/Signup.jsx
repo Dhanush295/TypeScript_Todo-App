@@ -3,18 +3,21 @@ import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 
 function Signup(){
-    const [username, setuser] = useState([]);
 
-    useEffect(async ()=>{
-        const user = await axios.post('http://localhost:3000/users/signup');
-        console.log(user);
-    },[]);
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    
 
 
+    const handleSubmit = async () => {
+        const response = await axios.post('http://localhost:3000/users/signup',{username, password});
+        alert(response.data);   
+    };
 
     return <div>
     <center>
@@ -22,9 +25,9 @@ function Signup(){
         <Typography style={{fontSize: 25, padding:10, fontFamily:"Copperplate"}}>
             SignUp Below
         </Typography>
-        <TextField id="outlined-basic" label="Username" variant="outlined" /><br/><br/>
-        <TextField id="outlined-basic" label="Password" variant="outlined" /><br/><br/>
-        <Button variant="contained">Signup</Button><br/><br/>
+        <TextField id="outlined-basic" label="Username" variant="outlined" onChange={e => setUserName(e.target.value) }/><br/><br/>
+        <TextField id="outlined-basic" label="Password" variant="outlined" onChange={e => setPassword(e.target.value)}/><br/><br/>
+        <Button variant="contained" onClick={handleSubmit}>Signup</Button><br/><br/>
         </Card>
     </center>
 </div>
