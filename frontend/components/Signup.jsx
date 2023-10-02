@@ -2,10 +2,18 @@ import Card from '@mui/material/Card';
 import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useEffect, useState } from 'react';
 
 
 
 function Signup(){
+    const [username, setuser] = useState([]);
+
+    useEffect(async ()=>{
+        const user = await axios.post('http://localhost:3000/users/signup');
+        console.log(user);
+    },[]);
+
 
 
     return <div>
