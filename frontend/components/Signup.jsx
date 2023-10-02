@@ -3,7 +3,9 @@ import { Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 
 
 
@@ -11,12 +13,15 @@ function Signup(){
 
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
     
 
 
     const handleSubmit = async () => {
         const response = await axios.post('http://localhost:3000/users/signup',{username, password});
-        alert(response.data);   
+        console.log(response.data.token);
+        localStorage.setItem("token", response.data.token );   
+        navigate('/login');
     };
 
     return <div>
