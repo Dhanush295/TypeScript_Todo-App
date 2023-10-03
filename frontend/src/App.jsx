@@ -12,7 +12,7 @@ function App() {
     <div style={{width:"100vw",height:"99vh",backgroundColor:"#c2c2d6"}}>
       <Router>
         <Routes>
-          <Route path ={"/todo"} element={<Todo/>}></Route>
+          <Route path ={"/"} element={<Todo/>}></Route>
         </Routes>
       </Router>
     </div>
