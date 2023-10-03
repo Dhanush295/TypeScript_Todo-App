@@ -7,7 +7,8 @@
   install:
   1. Node.js
   2. Express.js
-  3. Vite
+  3. mongoose 
+  4. Vite
 
 
   and all the required dependencies 

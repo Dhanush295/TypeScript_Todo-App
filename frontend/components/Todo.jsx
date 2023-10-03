@@ -17,7 +17,6 @@ function Todo() {
   const fetchTodos = async () => {
     try {
       const response = await axios.get("http://localhost:3000/users/home");
-      console.log(response.data)
       setTodoData(response.data);
     } catch (error) {
       console.error("Error fetching todos:", error);
@@ -25,7 +24,6 @@ function Todo() {
   };
 
   useEffect(() => {
-
     fetchTodos();
   }, []);
 
@@ -86,38 +84,43 @@ function Todo() {
         </div>
       </div>
 
-      {todoData.map((todo) => (
-        <ShowTodo
-          key={todo._id}
-          title={todo.title}
-          description={todo.description}
-          id={todo._id}
-          onDelete={handleDelete}
-        />
-      ))}
+      <div style={{backgroundColor:"#c2c2d6", padding:2}}>
+        {todoData.map((todo) => (
+          <ShowTodo
+            key={todo._id}
+            title={todo.title}
+            description={todo.description}
+            id={todo._id}
+            onDelete={handleDelete}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
 function ShowTodo(props) {
   return (
-    <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined">
-        <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            {props.title}
-          </Typography>
-          <Typography variant="h5" component="div">
-            {props.description}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small" onClick={() => props.onDelete(props.id)}>
-            Delete Todo
-          </Button>
-        </CardActions>
-      </Card>
+    <div style={{display: "inline-grid"}}>
+      <Box sx={{ maxWidth: 500, margin:2 }}>
+        <Card  variant="outlined">
+          <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+              {props.title}
+            </Typography>
+            <Typography variant="h5" component="div">
+              {props.description}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" onClick={() => props.onDelete(props.id)}>
+              Delete Todo
+            </Button>
+          </CardActions>
+        </Card>
     </Box>
+    </div>
+
   );
 }
 
