@@ -4,12 +4,12 @@ const SECRET = "jwtSecretfor-todoApp"
 
 const authenticate = async (req,res,next)=>{
   const token = req.headers.authorization.split(' ')[1]; 
-  //Authorization: 'Bearer TOKEN'
+
 
   if (token){
     jwt.verify(token, SECRET, (err, user)=>{
       if (err){
-        return res.status(404).json({message: "Authentication Failed!"})
+        return res.send(err);
       }
       req.user = user;
       next();
