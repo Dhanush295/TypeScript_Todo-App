@@ -10,33 +10,29 @@ import { useNavigate } from 'react-router-dom';
 
 function Todo(){
 
-    const [title, setTitle] = useState('');
+    const [title, setTitle ] = useState('');
     const [description, setDescription ] = useState('');
-    const navigate = useNavigate();
-
-    const handleSubmit = async () => {
-        const response = await axios.post('http://localhost:3000/users/todo',{title, description},{
-            headers:{
-                'Content-Type': 'application/json', 
-                authorization: "Bearer " + localStorage.getItem("token")
-            }
-        });
-        console.log(response.data);
-        navigate('/home');
-
+   
+    const handleSubmit = async() =>{
+        const todo = await axios.post('http://localhost:3000/users/todo', {title, description});
+        console.log(todo.data);
     };
 
     return <div>
-    <center>
-        <Card variant="outlined" style={{width:500, padding:5, margin:150, backgroundColor:"#f6f5f7"}}><br/>
-        <Typography style={{fontSize: 25, padding:10, fontFamily:"Copperplate"}}>
-            Create Todo
-        </Typography>
-        <TextField id="outlined-basic" label="Title" variant="outlined" onChange={e => setTitle(e.target.value)} /><br/><br/>
-        <TextField id="outlined-basic" label="Description" variant="outlined" onChange={e => setDescription(e.target.value)} /><br/><br/>
-        <Button variant="contained" onClick={handleSubmit}>Create</Button><br/><br/>
-        </Card>
-    </center>
+        <div style={{display: "flex", 
+        justifyContent: "center"}}>
+                <div style={{margin: 20, color:"white"}}>
+                    <TextField id="standard-basic" label="Title" variant="standard" onChange={e => setTitle(e.target.value)} />
+                </div>
+                <div style={{margin: 20}}>
+                    <TextField  id="standard-basic" label="Description" variant="standard" onChange={e => setDescription(e.target.value)} />
+                </div>
+                <dir style={{margin: 33}}>
+                    <Button variant="contained" onClick={handleSubmit}>Create Todo</Button>
+                </dir>
+
+        </div>
+        
 </div>
 
 }

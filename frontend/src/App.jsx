@@ -9,7 +9,7 @@ function App() {
   
 
   return (
-    <div style={{width:"100vw",height:"99vh" ,backgroundColor:"#ebeff3"}}>
+    <div style={{width:"100vw",height:"99vh",backgroundColor:"#c2c2d6"}}>
       <Router>
         <Routes>
           <Route path ={"/todo"} element={<Todo/>}></Route>

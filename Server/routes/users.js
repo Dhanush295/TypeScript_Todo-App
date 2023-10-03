@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { TODO } = require("../db/database");
-const jwt = require('jsonwebtoken');
-const {SECRET, authenticate } = require("../authentication/auth")
+
 
 router.get('/home', async(req,res) =>{
   const todo = await TODO.find({}) ;
@@ -22,7 +21,7 @@ router.post("/todo",async (req, res) => {
   }
 });
   
-router.delete('/todo/:id',authenticate, async (req, res) => {
+router.delete('/todo/:id', async (req, res) => {
     try {
       const todoId = req.params.id;
       const deletedTodo = await TODO.findByIdAndDelete(todoId);
