@@ -6,10 +6,8 @@ import Todo from '../components/Todo';
 import './App.css'
 
 function App() {
-  
-
   return (
-    <div style={{width:"100vw",height:"99vh",backgroundColor:"#c2c2d6"}}>
+    <div>
       <Router>
         <Routes>
           <Route path ={"/"} element={<Todo/>}></Route>

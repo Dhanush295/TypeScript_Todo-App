@@ -58,6 +58,10 @@ function Todo() {
 
   return (
     <div>
+      <div style={{display:"flex",margin:10,justifyContent: "center"}}> 
+      <h1>CREATE YOUR TODO</h1>
+      </div>
+      
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div style={{ margin: 20 }}>
           <TextField
@@ -84,7 +88,7 @@ function Todo() {
         </div>
       </div>
 
-      <div style={{backgroundColor:"#c2c2d6", padding:2}}>
+      <div>
         {todoData.map((todo) => (
           <ShowTodo
             key={todo._id}
@@ -102,10 +106,10 @@ function Todo() {
 function ShowTodo(props) {
   return (
     <div style={{display: "inline-grid"}}>
-      <Box sx={{ maxWidth: 500, margin:2 }}>
-        <Card  variant="outlined">
+      <Box sx={{ maxWidth: 500, margin:5 }}>
+        <Card  variant="outlined" style={{backgroundColor: "#E2E2E2", boxSizing:"20"}}>
           <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            <Typography sx={{ fontSize: 20 }} color="text.primary" gutterBottom>
               {props.title}
             </Typography>
             <Typography variant="h5" component="div">
