@@ -1,7 +1,7 @@
 # Todo-Application
 
   simple ToDo Application:
-  -> where you can add todo with description and delete
+  -> where you can add todo with description and delete todo
   -> Here I have used MongoDB to store the data
 
   install:
